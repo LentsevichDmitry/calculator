@@ -11,11 +11,11 @@
 <form action="doPage.php" method="POST">
     <input type="text" name="number1"><br>
     <input type="text" name="number2"><br>
-    <select name="variable">
+    <select name="action">
         <option value="plus">Сложение</option>
         <option value="minus">Вычитание</option>
-        <option value="umnojenie">Умножение</option>
-        <option value="delenie">Деление</option>
+        <option value="multiply">Умножение</option>
+        <option value="divide">Деление</option>
     </select>
     <br>
     <input type="submit" value="Submit">

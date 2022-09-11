@@ -1,16 +1,15 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-} else {
-    header("Location: /index.php");
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location:/index.php");
 }
-if (intval($_POST['number1']) && intval($_POST['number2'])){
-    $n1 = $_POST['number1'];
-    $n1 = intval($n1);
-    $n2 = $_POST['number2'];
-    $n2 = intval($n2);
-}else{
-    echo "Введите корректные значения";
+
+$availableActions = ['plus', 'minus', 'multiply', 'divide'];
+$n1 = intval($_POST['number1']);
+$n2 = intval($_POST['number2']);
+$action = $_POST['action'];
+
+if(!$n1 || !$n2 || !in_array($action, $availableActions)) {
+    die('Введите корректные значения');
 }
 
 function plus()
@@ -25,30 +24,29 @@ function minus()
     echo "<a href='index.php'>На главную</a>";
 }
 
-function umnojenie()
+function multiply()
 {
     echo $_POST['number1'] * $_POST['number2'] . "<br>";
     echo "<a href='index.php'>На главную</a>";
 }
 
-function delenie()
+function divide()
 {
     echo $_POST['number1'] / $_POST['number2'] . "<br>";
     echo "<a href='index.php'>На главную</a>";
 }
 
-$a = $_POST['variable'];
-switch ($a){
+switch ($action){
     case 'plus':
         plus();
         break;
     case 'minus':
         minus();
         break;
-    case 'umnojenie':
-        umnojenie();
+    case 'multiply':
+        multiply();
         break;
-    case 'delenie':
-        delenie();
+    case 'divide':
+        divide();
         break;
 }
