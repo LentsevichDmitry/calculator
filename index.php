@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="doPage.php" method="POST">
+<form action="calculate.php" method="POST">
     <input type="text" name="number1"><br>
     <input type="text" name="number2"><br>
     <select name="action">
